@@ -19,5 +19,5 @@ filteredSpectrum = idealfilter(timeseries(Signalspectrum), [0,4000], 'pass');
 figure;
 plot(filteredSpectrum);%plot the filtered signal
 legend('Spectrum of the filtered Signal');
-xlabel('Frequency(KHZ)');
+xlabel('Frequency(HZ)');
 ylabel('Ampliture(volt)');
