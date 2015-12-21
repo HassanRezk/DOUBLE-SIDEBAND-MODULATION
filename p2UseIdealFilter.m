@@ -12,3 +12,12 @@ stem(n2, abs(filteredSpectrum));%plot the filtered signal
 legend('Spectrum of the filtered Signal');
 xlabel('Frequency(HZ)');
 ylabel('Ampliture(volt)');
+
+
+%other solution [not sure]
+filteredSpectrum = idealfilter(timeseries(Signalspectrum), [0,4000], 'pass');
+figure;
+plot(filteredSpectrum);%plot the filtered signal
+legend('Spectrum of the filtered Signal');
+xlabel('Frequency(KHZ)');
+ylabel('Ampliture(volt)');
