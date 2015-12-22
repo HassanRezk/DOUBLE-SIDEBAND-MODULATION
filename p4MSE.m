@@ -2,3 +2,4 @@
 MSE = sqrt((WaveFormOfFilteredSignal.^2)-(audioSignal.^2));
 plot(abs(MSE))
 sound(abs(audioSignal),fs);
+MSE = 0;
