@@ -4,7 +4,6 @@
 %y = modulate(x,fc,fs,'amdsb-tc',opt)/
 Fc = 1*10^6;
 Fs = 3*Fc;
-DC_bias = 2*max(abs(fftshift(signal)));
 
 M_SC_T = modulate(audioSignal,Fc,Fs,'amdsb-sc');
 M_SC_F = 1/Fs*(fftshift(fft(M_SC_T)));
