@@ -6,25 +6,27 @@ clc;
 Fc = 1*10^6;
 Fs = 3*Fc;
 
+t = (0:1/Fs:((size(WaveFormOfFilteredSignal, 1)-1)/Fs))';
+t = t(:, ones(1, size(WaveFormOfFilteredSignal, 2)));
+
+signal = resample(WaveFormOfFilteredSignal, Fs, fs);
+carrier = cos(2*pi*Fc*t);
+
+modulated = (carrier + ).*WaveFormOfFilteredSignal;
 F = linspace(-Fs, Fs, length(WaveFormOfFilteredSignal));
-carrier = cos(2*pi*Fc*F);
-carrier = carrier';
-modulated = carrier.*WaveFormOfFilteredSignal;
 M_SC_F = 1/Fs*(fftshift(fft(modulated)));
 stem(F, abs(M_SC_F))
 
 
 figure;
-F = linspace(-Fs, Fs, length(WaveFormOfFilteredSignal));
-carrier = cos(2*pi*Fc*F);
-carrier = carrier';
 modulated = carrier.*WaveFormOfFilteredSignal;
-M_SC_F = 1/Fs*(fftshift(fft(modulated)));
-vc = 2*max(WaveFormOfFilteredSignal);
-Fcl = linspace(-Fs/2, Fs/2, length(WaveFormOfFilteredSignal));
-newcarrier = vc*cos(2*pi*Fc*F);
-fourier_carrier = 1/Fs*(fftshift(fft(newcarrier)));
-stem(F, abs(fourier_carrier));
+vc = 2*max(real(WaveFormOfFilteredSignal));
+newcarrier = vc*carrier;
+mod = newcarrier.*WaveFormOfFilteredSignal;
+M_TC_F = 1/Fs*(fftshift(fft(mod)));
+stem(F, abs(M_TC_F))
+
+
 %stem(F, abs(M_SC_F))
 %plot(F, modulated);
 
