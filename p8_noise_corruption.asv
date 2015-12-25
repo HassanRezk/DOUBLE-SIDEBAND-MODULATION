@@ -1,0 +1,8 @@
+%For DSB-TC only, repeat steps 6-8 with SNR = 0, 10, and 20 dB. 
+%Play back the sound file each time after detection. What conclusions do you make of that?
+
+%if snr = 0 noisy signal = current modulated signal
+
+%case 1: SNR = 10
+
+TC_time = Fs*ifft(M_TC_F);

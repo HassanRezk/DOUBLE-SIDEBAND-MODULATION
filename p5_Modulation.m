@@ -15,6 +15,6 @@ stem(F,abs(M_SC_F))
 figure
 mx = max(audioSignal);
 vc = 2*mx;
-M_TC_T = ammod(audioSignal, Fc, Fs, 0, vc);
+M_TC_T = ammod(abs(WaveFormOfFilteredSignal), Fc, Fs, 0, vc);
 M_TC_F = 1/Fs*(fftshift(fft(M_TC_T)));
 stem(F,abs(M_TC_F))
