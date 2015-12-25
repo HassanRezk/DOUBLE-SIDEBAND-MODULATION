@@ -6,9 +6,9 @@ clc;
 Fc = 1*10^6;
 Fs = 3*Fc;
 
-M_SC_T = modulate(audioSignal,Fc,Fs,'amdsb-sc');
+M_SC_T = modulate(WaveFormOfFilteredSignal,Fc,Fs,'amdsb-sc');
 M_SC_F = 1/Fs*(fftshift(fft(M_SC_T)));
-F = linspace(-Fs/2 , Fs/2 , length(M_SC_F));
+F = linspace(-Fs , Fs , length(M_SC_F));
 stem(F,abs(M_SC_F))
 
 
