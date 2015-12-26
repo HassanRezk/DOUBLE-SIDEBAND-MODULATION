@@ -18,11 +18,17 @@ M_SC = carrier.*WaveFormOfFilteredSignal;
 M_SC = 1/Fs*(fftshift(fft(M_SC)));
 F = linspace(-Fs/2, Fs/2, length(WaveFormOfFilteredSignal));
 stem(F, abs(M_SC))
+legend('DSBSC');
+xlabel('Frequency(seconds)');
+ylabel('Ampliture(volt)');
 
 figure;
 M_TC = (vc + WaveFormOfFilteredSignal).*carrier;
 M_TC = 1/Fs*(fftshift(fft(M_TC)));
 stem(F, abs(M_TC))
+legend('DSBTC');
+xlabel('Frequency(seconds)');
+ylabel('Ampliture(volt)');
 
 %plot(F, modulated);
 
